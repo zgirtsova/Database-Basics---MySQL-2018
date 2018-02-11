@@ -93,10 +93,10 @@ ORDER BY `iso_code`;
 
 -- 11. Mix of Peak and River Names --
 
-select p.peak_name,r.river_name,lower(concat(p.peak_name,substring(r.river_name,2)))as mix
-from peaks as p,rivers as r
-where right(p.peak_name,1) = left(r.river_name,1)
-order by mix;
+SELECT p.`peak_name`, r.`river_name`, LOWER(CONCAT(p.`peak_name`, SUBSTR(r.`river_name`,2))) AS `mix`
+FROM `peaks` AS p, `rivers` AS r
+WHERE RIGHT(p.`peak_name`, 1) = LEFT(r.`river_name`, 1)
+ORDER BY `mix`;
 
 -- Part III – Queries for Diablo Database
 -- 12. Games from 2011 and 2012 year
