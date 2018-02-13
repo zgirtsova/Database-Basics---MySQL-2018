@@ -204,6 +204,25 @@ AND e.salary > avg_salary_by_dep.avg_salary
 ORDER BY e.department_id ASC
 LIMIT 10;
 
+-- 18. sALARY cHALLENGE - mY VERSION
+
+SELECT e.first_name, e.last_name, e.department_id, avg_salary_by_dep.avg_salary
+FROM employees 
+AS e
+
+JOIN 
+ 
+	(SELECT e.department_id, avg(e.salary) AS avg_salary
+	FROM employees AS e
+	GROUP BY e.department_id) 
+	AS avg_salary_by_dep
+
+ON
+e.department_id = avg_salary_by_dep.department_id
+WHERE e.salary > avg_salary_by_dep.avg_salary
+ORDER BY e.department_id ASC
+LIMIT 10;
+
 -- 19. Departments Total Salaries --
 
 SELECT department_id, SUM(salary) AS total_salary 
