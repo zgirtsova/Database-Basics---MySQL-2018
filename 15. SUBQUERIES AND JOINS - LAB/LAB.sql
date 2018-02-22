@@ -11,11 +11,12 @@ LIMIT 5;
 
 -- 2.	Towns Adresses --
 
-SELECT t.town_id, t.name, ad.address_text
+SELECT t.town_id, t.name AS 'town_name', ad.address_text
 FROM towns AS t
 JOIN addresses AS ad
 ON t.town_id = ad.town_id
-WHERE t.name IN ('San Francisco', 'Sofia', 'Carnation');
+WHERE t.name IN ('San Francisco', 'Sofia', 'Carnation')
+ORDER BY t.town_id ASC, ad.address_id ASC;
 
 -- 3.	Employees Without Managers --
 
